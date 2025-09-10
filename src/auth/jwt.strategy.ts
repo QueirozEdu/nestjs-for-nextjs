@@ -28,7 +28,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     const user = await this.userService.findById(payload.sub);
 
     if (!user || user.forceLogout) {
-      throw new UnauthorizedException('Você precisa fazer login');
+      throw new UnauthorizedException('User not logged in');
     }
 
     return user;
