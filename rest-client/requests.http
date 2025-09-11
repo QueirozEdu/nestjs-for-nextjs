@@ -21,13 +21,23 @@ Authorization: Bearer {{jwtToken}}
 
 ###Create user
 # @name createUser
-
 POST {{baseUrl}}/user
 Content-Type: application/json
 
 {
   "name": "John Doe",
-  "email": "user@email.com",
+  "email": "user2@email.com",
   "password": "123456"
+}
+
+###Update user
+# @name updateUser
+PATCH  {{baseUrl}}/user/me
+Content-Type: application/json
+Authorization: Bearer {{jwtToken}}
+
+{
+  "name": "John Doe",
+  "email": "example@email.com"
 }
 
