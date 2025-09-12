@@ -20,6 +20,6 @@ export class CreatePostDto {
   content: string;
 
   @IsOptional()
-  @IsUrl({ require_tld: false })
+  @IsUrl({ require_tld: false }, { message: 'Image URL must be a valid URL' })
   coverImageUrl: string;
 }
