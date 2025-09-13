@@ -40,7 +40,7 @@ export class UploadService {
     const fileName = `${uniqueSuffix}.${fileExtension}`;
     const fileFullPath = resolve(uploadPath, fileName);
 
-    // Salvar o buffer no disco
+    // save buffer in disk
     writeFileSync(fileFullPath, file.buffer);
 
     return {
