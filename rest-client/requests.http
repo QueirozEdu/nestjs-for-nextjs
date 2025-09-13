@@ -7,7 +7,7 @@
 @imageUrl = {{baseUrl}}{{imagePath}}
 
 @userNameForTesting = John
-@userEmailForTesting = John@email.com
+@userEmailForTesting = john@email.com
 @userPasswordForTesting = 123456
 @userNewPasswordForTesting = 123456
 
@@ -77,9 +77,10 @@ Content-Type: application/json
 Authorization: Bearer {{jwtToken}}
 
 {
-  "title": "Post title",
-  "excerpt": "Excerpt",
-  "content": "Content"
+  "title": "Post last title",
+  "excerpt": "Post excerpt",
+  "content": "Content",
+  "coverImageUrl": "http://localhost"
 }
 
 ### Read all post public
@@ -107,9 +108,9 @@ Content-Type: application/json
 Authorization: Bearer {{jwtToken}}
 
 {
-  "title": "NEW - Post title",
-  "excerpt": "NEW - Excerpt",
-  "content": "NEW- Content",
+  "title": "2 New - Post title",
+  "excerpt": "New - Excerpt",
+  "content": "New - Content",
   "published": true
 }
 
