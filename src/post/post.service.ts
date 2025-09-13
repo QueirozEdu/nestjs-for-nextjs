@@ -76,6 +76,18 @@ export class PostService {
     return posts;
   }
 
+  async findAll(postData: Partial<Post>) {
+    const posts = await this.postRepository.find({
+      where: postData,
+      order: {
+        createdAt: 'DESC',
+      },
+      relations: ['author'],
+    });
+
+    return posts;
+  }
+
   async create(dto: CreatePostDto, author: User) {
     const post = this.postRepository.create({
       slug: createSlugFromText(dto.title),
@@ -113,5 +125,13 @@ export class PostService {
     post.published = dto.published ?? post.published;
 
     return this.postRepository.save(post);
+  }
+  async remove(postData: Partial<Post>, author: User) {
+    const post = await this.findOneOrFail(postData);
+    await this.postRepository.delete({
+      ...postData,
+      author: { id: author.id },
+    });
+    return post;
   }
 }
